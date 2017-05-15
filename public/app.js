@@ -6,11 +6,25 @@ var catsArray = [
   {name: "Garfield", favFood: "Lasagne", image: "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Garfield_the_Cat.svg/1200px-Garfield_the_Cat.svg.png"}
 ];
 
-var createCatList = function() {
-  var catList = document.createElement("ul");
-  catList.classList.add("cat");
-  return catList;
+var app = function() {
+  for (var cat of catsArray) {
+    addCat(cat.name, cat.favFood, cat.image);
+  }
 };
+
+var addCat = function(name, favFood, image) {
+  var listItemName = createListItemName(name);
+  var listItemFood = createListItemFood(favFood);
+  var catImage = createCatImage(image);
+  var cats = document.getElementById("cats");
+  appendElements(cats, listItemName, listItemFood, catImage);
+};
+
+// var createCatList = function() {
+//   var catList = document.createElement("ul");
+//   catList.classList.add("cat");
+//   return catList;
+// };
 
 var createListItemName = function(name) {
   var listItemName = document.createElement("li");
@@ -39,20 +53,6 @@ var appendElements = function(cats, listItemName, listItemFood, catImage) {
   cats.appendChild(listItemName);
   cats.appendChild(listItemFood);
   cats.appendChild(catImage);
-};
-
-var addCat = function(name, favFood, image) {
-  var listItemName = createListItemName(name);
-  var listItemFood = createListItemFood(favFood);
-  var catImage = createCatImage(image);
-  var cats = document.getElementById("cats");
-  appendElements(cats, listItemName, listItemFood, catImage);
-};
-
-var app = function() {
-  for (var cat of catsArray) {
-    addCat(cat.name, cat.favFood, cat.image);
-  }
 };
 
 window.onload = app;
