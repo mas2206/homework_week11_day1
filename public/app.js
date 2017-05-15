@@ -32,9 +32,12 @@ var createCatImage = function(image) {
 };
 
 var appendElements = function(cats, listItemName, listItemFood, catImage) {
-  listItemFood.appendChild(catImage);
-  listItemName.appendChild(listItemFood);
+  // listItemFood.appendChild(catImage);
+  // listItemName.appendChild(listItemFood);
+  // cats.appendChild(listItemName);
   cats.appendChild(listItemName);
+  cats.appendChild(listItemFood);
+  cats.appendChild(catImage);
 };
 
 var addCat = function(name, favFood, image) {
